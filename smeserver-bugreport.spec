@@ -34,11 +34,11 @@ Instructions are provided encouraging users to attach this report to any bug the
 %build
 perl createlinks
 
-LEXICONS=$(find root/etc/e-smith/{locale/,web/functions/} -type f )
-for lexicon in $LEXICONS
-do
-    /sbin/e-smith/validate-lexicon $lexicon
-done
+#LEXICONS=$(find root/etc/e-smith/{locale/,web/functions/} -type f )
+#for lexicon in $LEXICONS
+#do
+#    /sbin/e-smith/validate-lexicon $lexicon
+#done
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -54,19 +54,19 @@ rm -rf $RPM_BUILD_ROOT
 %preun
 
 %post
-if [ -d /etc/e-smith/events/conf-userpanel ] ; then
-   /sbin/e-smith/signal-event conf-userpanel
-fi
+#if [ -d /etc/e-smith/events/conf-userpanel ] ; then
+#   /sbin/e-smith/signal-event conf-userpanel
+#fi
 
 %postun
 #uninstall
-if [ $1 = 0 ] ; then
-
- DBS=`find /home/e-smith/db/navigation -type f -name "navigation.*"`
- for db in $DBS ; do
-          /sbin/e-smith/db $db delete bugreport 2>/dev/null
-	done
-fi
+#if [ $1 = 0 ] ; then
+#
+# DBS=`find /home/e-smith/db/navigation -type f -name "navigation.*"`
+# for db in $DBS ; do
+#          /sbin/e-smith/db $db delete bugreport 2>/dev/null
+#	done
+#fi
 
 
 %files -f %{name}-%{version}-filelist
