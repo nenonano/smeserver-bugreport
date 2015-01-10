@@ -1,0 +1,82 @@
+<lexicon lang="en-us">
+
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Report a Bug</trans>
+    </entry>
+
+    <entry>
+            <base>FORM_DESCRIPTION</base>
+            <trans>
+                <![CDATA[
+		<p><b>Don't Panic&#0153;!</b></p>
+            <p>Unfortunately there is no software without bugs, and you probably came to this page because of an issue you are experiencing with your SME-server installation.</p>
+            
+            <p>In order to help developers to diagnose and fix your issue, please download one of the following text templates, fill it out and paste it into your bug report at <a href="https://bugs.contribs.org" target="_blank">https://bugs.contribs.org</a>.</p>
+            
+                 ]]>
+            </trans>
+    </entry>
+    
+    <entry>
+        <base>Create configuration report</base>
+        <trans>Create configuration rep.</trans>
+    </entry>
+
+    <entry>
+        <base>TEMPLATE_DESCRIPTIONS</base>
+	<trans>
+		<![CDATA[
+			<table border="1px solid gray" cellpadding="2px" align="center" width="60%">
+		<tr valign="top"><td>Simple report</td><td>A simple template for bug reporting. <br />Use this if you basically have no idea what went wrong, in order to provide at least the minimum information required for a bug report.</td><td><a href="#">DOWNLOAD</a></td></tr>
+		<tr valign="top"><td>Professional report</td><td>A more elaborate template for bug reporting. <br />Please use this template if you already have an idea what may have caused the issue, how to reproduce the issue, or if you already want to propose a solution for the issue.</td><td><a href="#">DOWNLOAD</a></td></tr>
+		<table>
+
+
+		]]>
+	</trans>
+    </entry>
+    
+    <entry>
+        <base>CONFIG_REPORT_DESCRIPTION</base>
+	<trans>
+	<![CDATA[
+		<p>It will also help if you provide some vital information on the configuration of your SME-server in your bug report. By clicking on the "Create configuration report" button below, you can create and download a text file containing this information. Please attach this file to your bug report as well.</p><p>The report will contain the following information:
+	<ul>
+		<li>SME server version</li>
+		<li>System type (32 or 64 bit)</li>
+		<li>A list of additional RPMs installed on your server</li>
+		<li>A list of additional software repositories configured on your server</li>
+	</ul>
+	No privacy related data (ie. users, passwords, IP addresses) will be included in the report.
+	]]>
+	</trans>
+    </entry>
+
+    <entry>
+            <base>CREATE_REPORT</base>
+            <trans>Create configuration report</trans>
+    </entry>
+
+    <entry>
+        <base>DONATE_TEXT</base>
+        <trans>
+            <![CDATA[
+	<hr />
+            <p><b>Have you considered donating?</b></p>
+            <p>You are probaly aware that SME server is developed and supported by a collaborative community of volunteers from all over the world.
+	 While SME server is free to download and use, maintaining the infrastructure behind the project (eg. hosting the forums and wiki, providing repositories and build servers etc.)
+            costs real money in the real world.
+	<p><b> In very much the same way you need us to address your current issue, we need YOUR help to keep this project alive!</b></p>
+            <p>Please consider donating to the project by clicking on the image link below:</p>
+        <p>
+        <a href="http://www.smeserver.org/donate/" target="_blank">
+        <img src="/server-common/btn_donateCC_LG.gif" alt="http://www.smeserver.org/donate/" 
+        align="middle"></a>
+        </p>
+	<p>Thank you for your support!</p>
+            ]]>
+        </trans>
+    </entry>
+
+</lexicon>

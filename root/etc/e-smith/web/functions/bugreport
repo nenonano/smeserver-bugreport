@@ -1,0 +1,65 @@
+#!/usr/bin/perl -wT
+ 
+#----------------------------------------------------------------------
+# heading     : Miscellaneous
+# description : Report a bug
+# navigation  : 7000 7300
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+#----------------------------------------------------------------------
+
+use strict;
+use warnings;
+use esmith::TestUtils;
+use esmith::FormMagick::Panel::bugreport;
+ 
+my $f = esmith::FormMagick::Panel::bugreport->new();
+$f->display();
+
+=pod
+
+=head1 NAME
+
+bugreport -- report a bug
+
+=head2 DESCRIPTION
+
+This screen helps the administrator to submit helpful bug reports
+
+=begin testing
+
+=end testing
+
+=cut
+
+__DATA__
+<form
+     title="FORM_TITLE"
+     header="/etc/e-smith/web/common/head.tmpl"
+     footer="/etc/e-smith/web/common/foot.tmpl">
+ 
+     <page name="First" pre-event="print_status_message()"
+         post-event="create_report">
+         
+    <description>FORM_DESCRIPTION</description>
+    
+    <field type="literal" id="ReportTemplates" >
+        <description>TEMPLATE_DESCRIPTIONS</description>
+    </field>
+
+     <field type="literal" id="ConfigReportDescriptionTemplates" >
+        <description>CONFIG_REPORT_DESCRIPTION</description>
+    </field>
+    
+         <subroutine src="print_button('CREATE_REPORT')" />
+         
+     <field type="literal" id="Donationtext" >
+          <description>DONATE_TEXT</description>
+     </field>
+     
+     </page>
+</form>
