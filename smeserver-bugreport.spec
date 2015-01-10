@@ -4,7 +4,7 @@
 
 %define name smeserver-bugreport
 %define version 0.1
-%define release 1
+%define release 2
 Summary: SME Server-Manager Panel to create a downloadable system configuration report.
 Name: %{name}
 Version: %{version}
@@ -25,6 +25,10 @@ SME Server-Manager Panel to create a downloadable system configuration report.
 Instructions are provided encouraging users to attach this report to any bug they raise.
 
 %changelog
+* Sat Jan 10 2015 mats schuh <m.schuh@neckargeo.net> 0.1-2.test
+- Corrected spec file and create links
+- Courtesy Stephane de Labrusse
+
 * Fri Jan 9 2015 mats schuh <m.schuh@neckargeo.net> 0.1-1.test
 - Initial release
 
