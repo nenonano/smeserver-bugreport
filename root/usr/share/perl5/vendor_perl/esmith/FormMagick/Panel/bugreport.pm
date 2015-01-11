@@ -39,7 +39,7 @@ sub get_newrpms_list {
 
 sub get_repositories_list {
     my @repositories = `/sbin/e-smith/audittools/newrpms`;
-    my $repositorieslist = join("\n", @newrpms);
+    my $repositorieslist = join("\n", @repositories);
     return $repositorieslist;
 }
 
