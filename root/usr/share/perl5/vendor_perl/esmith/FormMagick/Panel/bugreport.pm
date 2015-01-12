@@ -55,7 +55,7 @@ sub create_configuration_report
     
     # get additional Repositories
     my @repositories = `/sbin/e-smith/audittools/repositories`;
-    print @repositories; 
+    #print @repositories; 
     
     # set template variables
     my %vars = (report_creation_time => \$report_creation_time,
