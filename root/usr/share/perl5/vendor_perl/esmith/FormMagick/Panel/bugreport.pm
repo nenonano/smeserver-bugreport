@@ -47,7 +47,7 @@ sub create_configuration_report
     # indicating the user has read privacy warning etc.
     
     # create the reporting template
-    my $configreport_template = Text::Template->new(TYPE => 'FILE', SOURCE => '/usr/share/doc/smeserver-bugreport-0.1/configuration_report.tmpl', UNTAINT => 1);
+    my $configreport_template = Text::Template->new(TYPE => 'FILE', SOURCE => '/usr/share/smeserver-bugreport/configuration_report.tmpl', UNTAINT => 1);
     my $report_creation_time = $fm->gen_locale_date_string;
     
     # get additional RPMs

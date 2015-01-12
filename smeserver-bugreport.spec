@@ -45,10 +45,14 @@ perl createlinks
 #done
 
 %install
+echo "Removing RPM_BUILD_ROOT"
 rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
+echo "Removing filelist"
 rm -f %{name}-%{version}-filelist
+echo "Generating filelist"
 /sbin/e-smith/genfilelist $RPM_BUILD_ROOT > %{name}-%{version}-filelist
+
 echo "%doc COPYING"  >> %{name}-%{version}-filelist
 
 %clean
