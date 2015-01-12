@@ -1,0 +1,32 @@
+Configuration report created {$report_creation_time}
+
+==================
+Base configuration
+==================
+
+SME server version: {$releaseversion}
+SME server mode:    {$systemmode}
+
+
+
+===========================
+New RPMs not in base system
+===========================
+        
+{ foreach $i (@newrpms) {
+            $OUT .= "$i";
+          }    
+} 
+
+
+
+=======================
+Additional repositories
+=======================
+
+{ foreach $r (@repositories) {
+            $OUT .= "$r";
+          }
+}   		
+
+DONE!
