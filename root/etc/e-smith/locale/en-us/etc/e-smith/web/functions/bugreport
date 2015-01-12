@@ -38,6 +38,11 @@
     </entry>
     
     <entry>
+        <base>CREATE_TEMPLATE</base>
+        <trans>Create bugreporting template</trans>
+    </entry>
+    
+    <entry>
         <base>CONFIG_REPORT_DESCRIPTION</base>
 	<trans>
 	<![CDATA[

@@ -5,6 +5,7 @@ use strict;
 use warnings;
 use esmith::ConfigDB;
 use esmith::FormMagick;
+use Text::Template;
 
 our @ISA = qw(esmith::FormMagick Exporter);
 
@@ -31,19 +32,13 @@ sub new {
     return $self;
 }
 
-sub get_newrpms_list {
-    my @newrpms = `/sbin/e-smith/audittools/newrpms`;
-    my $newrpmlist = join("\n", @newrpms);
-    return $newrpmlist;
+sub create_template
+{
+    # TBD
 }
 
-sub get_repositories_list {
-    my @repositories = `/sbin/e-smith/audittools/newrpms`;
-    my $repositorieslist = join("\n", @repositories);
-    return $repositorieslist;
-}
 
-sub create_report
+sub create_configuration_report
 {
     my $fm = shift;
     my $q = $fm->{'cgi'};
@@ -51,24 +46,47 @@ sub create_report
     # TBD: possibly check $q for a boolean value eg. from a checkbox
     # indicating the user has read privacy warning etc.
     
+    # create the reporting template
+    my $configreport_template = Text::Template->new(TYPE => 'FILE', SOURCE => '/usr/share/doc/smeserver-bugreport-0.1/configuration_report.tmpl', UNTAINT => 1);
+    my $report_creation_time = $fm->gen_locale_date_string;
+    
+    # get additional RPMs
+    my @newrpms = `/sbin/e-smith/audittools/newrpms`;
+    
+    # get additional Repositories
+    my @repositories = `/sbin/e-smith/audittools/repositories`;
+    print @repositories; 
+    
+    # set template variables
+    my %vars = (report_creation_time => \$report_creation_time,
+               releaseversion => \$releaseversion,
+               systemmode => \$systemmode,
+               newrpms => \@newrpms,
+               repositories => \@repositories,
+               ); 
 
-    # begin wrting to config report file
+    # prcess template
+    my $result = $configreport_template->fill_in(HASH => \%vars);
+
+    # write processed template to file
     open (my $cfgrep, '>', $configreportfile) or die "Could not create temporary file for config report!"; 
-    my $current_datetime = $fm->gen_locale_date_string;
-    print $cfgrep "Configuration report created on $current_datetime\n";
-
-    # close config report file
+    print $cfgrep $result;
     close $cfgrep;
-    
-    
-
-
-    $fm->success('SUCCESS');
 }
 
-sub create_template
-{
-    # TBD
+sub show_config_report {
+    my $fm = shift;
+    my $q = $fm->{'cgi'};
+    print "<PRE>";
+    open (my $cfgrep, '<', $configreportfile) or die "Could not find temporary config report file!";
+    print while <$cfgrep>;
+    close $cfgrep;
+    print "</PRE>";
+    # that would be too easy!?
+    print "<a href=\"$configreportfile\">Download this report</a>";
+
+
+
 }
 
 1;

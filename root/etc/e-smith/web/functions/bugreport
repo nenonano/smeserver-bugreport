@@ -43,15 +43,15 @@ __DATA__
      footer="/etc/e-smith/web/common/foot.tmpl">
  
      <page name="First" pre-event="print_status_message()"
-         post-event="create_report">
+         post-event="create_configuration_report">
          
     <description>FORM_DESCRIPTION</description>
     
-    <field type="literal" id="ReportTemplates" >
+    <field type="literal" id="ReportTemplateDescription" >
         <description>TEMPLATE_DESCRIPTIONS</description>
     </field>
-
-     <field type="literal" id="ConfigReportDescriptionTemplates" >
+    
+     <field type="literal" id="ConfigReportDescription" >
         <description>CONFIG_REPORT_DESCRIPTION</description>
     </field>
     
@@ -61,5 +61,11 @@ __DATA__
           <description>DONATE_TEXT</description>
      </field>
      
+     </page>
+     
+     <page name="ConfigReportPage" >
+         <description>The following configuration report has been created</description>
+         <subroutine src="show_config_report()" />
+         
      </page>
 </form>
